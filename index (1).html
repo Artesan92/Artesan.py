@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Artesan.py - Catálogo</title>
+<style>
+:root{--bg:#faf7f2;--card:#fff;--tx:#2b2b2b;--mut:#777;--ac:#25a244;--bd:#e6e0d6}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1b19;--card:#262522;--tx:#f0ece4;--mut:#a39e94;--bd:#3a3834}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:90px}
+header{padding:20px 16px 8px;text-align:center}
+h1{margin:0;font-size:1.5rem}
+header p{margin:4px 0 10px;color:var(--mut)}
+.f{display:flex;gap:8px;max-width:900px;margin:auto}
+input,select{font:inherit;padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)}
+.f input{flex:1;min-width:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;padding:12px 16px;max-width:900px;margin:auto}
+.p{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.p img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;background:var(--bd)}
+.p h3{margin:0;font-size:.95rem}
+.pr{color:var(--mut)}
+button{font:inherit;border:0;border-radius:8px;cursor:pointer}
+.add{background:var(--ac);color:#fff;padding:9px;margin-top:auto}
+#bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:center}
+#bar button{background:var(--ac);color:#fff;padding:10px 16px}
+#panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:5}
+#panel.on{display:block}
+#box{position:absolute;left:0;right:0;bottom:0;max-height:85%;overflow:auto;background:var(--card);border-radius:16px 16px 0 0;padding:16px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd)}
+.q{display:flex;align-items:center;gap:8px}
+.q button{width:30px;height:30px;background:var(--bd);color:var(--tx)}
+#box input{width:100%;margin-top:10px}
+.send{width:100%;background:var(--ac);color:#fff;padding:12px;margin-top:12px}
+.close{background:none;color:var(--mut);width:100%;padding:10px}
+</style>
+</head>
+<body>
+<header>
+<h1>Artesan.py</h1>
+<p>Insumos para manualidades. Armá tu pedido y mandalo por WhatsApp.</p>
+<div class="f"><input id="q" placeholder="Buscar producto..." oninput="pintar()"><select id="cat" onchange="pintar()"></select></div>
+</header>
+<div class="grid" id="grid"><p>Cargando...</p></div>
+<div id="bar"><div><b id="cnt">0</b> productos · <b id="tot">0 Gs</b></div><button onclick="abrir()">Ver carrito</button></div>
+<div id="panel"><div id="box">
+<h2 style="margin:0 0 8px">Tu pedido</h2>
+<div id="items"></div>
+<p style="text-align:right"><b>Total: <span id="tot2">0 Gs</span></b></p>
+<input id="nom" placeholder="Tu nombre (opcional)">
+<input id="ciu" placeholder="Ciudad (opcional)">
+<button class="send" onclick="enviar()">Enviar pedido por WhatsApp</button>
+<button class="close" onclick="cerrar()">Seguir viendo productos</button>
+</div></div>
+<script>
+var WHATSAPP="595991182426";
+var P=[],M={},carrito={};
+function gs(n){return n.toLocaleString("es-PY").replace(/,/g,".")+" Gs";}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+fetch("productos.json").then(function(r){return r.json();}).then(function(d){
+  P=d;d.forEach(function(p){M[p.id]=p;});
+  var cs=[];d.forEach(function(p){if(cs.indexOf(p.categoria)<0)cs.push(p.categoria);});
+  cs.sort();
+  document.getElementById("cat").innerHTML='<option value="">Todas las categorías</option>'+cs.map(function(c){return '<option>'+esc(c)+'</option>';}).join("");
+  pintar();
+}).catch(function(){document.getElementById("grid").innerHTML="<p>No se pudo cargar la lista de productos.</p>";});
+function pintar(){
+  var q=document.getElementById("q").value.toLowerCase(),c=document.getElementById("cat").value;
+  var l=P.filter(function(p){return (!c||p.categoria===c)&&p.nombre.toLowerCase().indexOf(q)>=0;});
+  document.getElementById("grid").innerHTML=l.length?l.map(function(p){
+    return '<div class="p"><img loading="lazy" src="fotos/'+esc(p.foto)+'" alt="" onerror="this.style.visibility=\'hidden\'"><h3>'+esc(p.nombre)+'</h3><div class="pr">'+gs(p.precio)+'</div><button class="add" onclick="mas('+p.id+')">Agregar</button></div>';
+  }).join(""):"<p>No hay productos con esa búsqueda.</p>";
+}
+function mas(id){carrito[id]=(carrito[id]||0)+1;act();}
+function menos(id){carrito[id]=(carrito[id]||0)-1;if(carrito[id]<=0)delete carrito[id];act();}
+function totales(){var c=0,t=0;Object.keys(carrito).forEach(function(id){c+=carrito[id];t+=carrito[id]*M[id].precio;});return {c:c,t:t};}
+function act(){
+  var x=totales();
+  document.getElementById("cnt").textContent=x.c;
+  document.getElementById("tot").textContent=gs(x.t);
+  document.getElementById("tot2").textContent=gs(x.t);
+  var h=Object.keys(carrito).map(function(id){var p=M[id];
+    return '<div class="row"><span>'+esc(p.nombre)+'<br><small>'+gs(p.precio)+'</small></span><span class="q"><button onclick="menos('+id+')">−</button>'+carrito[id]+'<button onclick="mas('+id+')">+</button></span></div>';}).join("");
+  document.getElementById("items").innerHTML=h||'<p style="color:var(--mut)">Todavía no agregaste nada.</p>';
+}
+function abrir(){document.getElementById("panel").classList.add("on");}
+function cerrar(){document.getElementById("panel").classList.remove("on");}
+function enviar(){
+  var x=totales();
+  if(x.c===0){alert("Agregá al menos un producto.");return;}
+  var m="Hola, quiero hacer este pedido:\n";
+  Object.keys(carrito).forEach(function(id){var p=M[id],q=carrito[id];m+="- "+q+" x "+p.nombre+" - "+gs(q*p.precio)+"\n";});
+  m+="Total: "+gs(x.t);
+  var n=document.getElementById("nom").value.trim(),c=document.getElementById("ciu").value.trim();
+  if(n)m+="\nNombre: "+n;
+  if(c)m+="\nCiudad: "+c;
+  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(m),"_blank");
+}
+act();
+</script>
+</body>
+</html>

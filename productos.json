@@ -1,0 +1,317 @@
+[
+ {
+  "id": 1,
+  "nombre": "Molde Hello Kitty",
+  "precio": 27000,
+  "categoria": "Moldes",
+  "foto": "001.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Molde Naranja x4",
+  "precio": 35000,
+  "categoria": "Moldes",
+  "foto": "002.jpg"
+ },
+ {
+  "id": 3,
+  "nombre": "Molde Huellitas x10",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "003.jpg"
+ },
+ {
+  "id": 4,
+  "nombre": "Molde Flamenco x15",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "004.jpg"
+ },
+ {
+  "id": 5,
+  "nombre": "Molde Corazon x15",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "005.jpg"
+ },
+ {
+  "id": 6,
+  "nombre": "Molde Letras Minuscula",
+  "precio": 40000,
+  "categoria": "Moldes",
+  "foto": "006.jpg"
+ },
+ {
+  "id": 7,
+  "nombre": "Molde Conejos",
+  "precio": 27000,
+  "categoria": "Moldes",
+  "foto": "007.jpg"
+ },
+ {
+  "id": 8,
+  "nombre": "Molde Dinos Bebes x12",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "008.jpg"
+ },
+ {
+  "id": 9,
+  "nombre": "Molde Hello Kitty x16",
+  "precio": 27000,
+  "categoria": "Moldes",
+  "foto": "009.jpg"
+ },
+ {
+  "id": 10,
+  "nombre": "Resina Base Agua 1Lt",
+  "precio": 50000,
+  "categoria": "Resina",
+  "foto": "010.jpg"
+ },
+ {
+  "id": 11,
+  "nombre": "Molde Huellas x6",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "011.jpg"
+ },
+ {
+  "id": 12,
+  "nombre": "Molde Buho x15",
+  "precio": 27000,
+  "categoria": "Moldes",
+  "foto": "012.jpg"
+ },
+ {
+  "id": 13,
+  "nombre": "Molde Pariposa Grande",
+  "precio": 34500,
+  "categoria": "Moldes",
+  "foto": "013.jpg"
+ },
+ {
+  "id": 14,
+  "nombre": "Molde Flamenco x6",
+  "precio": 27000,
+  "categoria": "Moldes",
+  "foto": "014.jpg"
+ },
+ {
+  "id": 15,
+  "nombre": "Molde Abeja c/Panal",
+  "precio": 27000,
+  "categoria": "Moldes",
+  "foto": "015.jpg"
+ },
+ {
+  "id": 16,
+  "nombre": "Molde Silicona Dinos x6",
+  "precio": 27000,
+  "categoria": "Moldes",
+  "foto": "016.jpg"
+ },
+ {
+  "id": 17,
+  "nombre": "Molde Silicona Dibujos Varios",
+  "precio": 30000,
+  "categoria": "Moldes",
+  "foto": "017.jpg"
+ },
+ {
+  "id": 18,
+  "nombre": "Molde Alhajero Carrusel",
+  "precio": 60000,
+  "categoria": "Moldes",
+  "foto": "018.jpg"
+ },
+ {
+  "id": 19,
+  "nombre": "Molde Baby Swower",
+  "precio": 30000,
+  "categoria": "Moldes",
+  "foto": "019.jpg"
+ },
+ {
+  "id": 20,
+  "nombre": "Molde Corazon Tejido",
+  "precio": 22500,
+  "categoria": "Moldes",
+  "foto": "020.jpg"
+ },
+ {
+  "id": 21,
+  "nombre": "Molde Peona 5,5cm",
+  "precio": 40000,
+  "categoria": "Moldes",
+  "foto": "021.jpg"
+ },
+ {
+  "id": 22,
+  "nombre": "Molde Maceta Auto",
+  "precio": 75000,
+  "categoria": "Moldes",
+  "foto": "022.jpg"
+ },
+ {
+  "id": 23,
+  "nombre": "Molde Corazon Entre Manos",
+  "precio": 45000,
+  "categoria": "Moldes",
+  "foto": "023.jpg"
+ },
+ {
+  "id": 24,
+  "nombre": "Molde Corazon Diamantado",
+  "precio": 20000,
+  "categoria": "Moldes",
+  "foto": "024.jpg"
+ },
+ {
+  "id": 25,
+  "nombre": "Molde Cabeza De Mujer",
+  "precio": 65000,
+  "categoria": "Moldes",
+  "foto": "025.jpg"
+ },
+ {
+  "id": 26,
+  "nombre": "Molde Flor Hawaiana",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "026.jpg"
+ },
+ {
+  "id": 27,
+  "nombre": "Molde Panal Hexagonal",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "027.jpg"
+ },
+ {
+  "id": 28,
+  "nombre": "Molde Sucus x9",
+  "precio": 64500,
+  "categoria": "Moldes",
+  "foto": "028.jpg"
+ },
+ {
+  "id": 29,
+  "nombre": "Molde Silicona Mini Bubble",
+  "precio": 12000,
+  "categoria": "Moldes",
+  "foto": "029.jpg"
+ },
+ {
+  "id": 30,
+  "nombre": "Molde Rollo de Lana",
+  "precio": 34500,
+  "categoria": "Moldes",
+  "foto": "030.jpg"
+ },
+ {
+  "id": 31,
+  "nombre": "Molde Piecitos Pegados",
+  "precio": 27500,
+  "categoria": "Moldes",
+  "foto": "031.jpg"
+ },
+ {
+  "id": 32,
+  "nombre": "Molde Dado c/Letras",
+  "precio": 25000,
+  "categoria": "Moldes",
+  "foto": "032.jpg"
+ },
+ {
+  "id": 33,
+  "nombre": "Molde Silicona Mini Bubble x3",
+  "precio": 30000,
+  "categoria": "Moldes",
+  "foto": "033.jpg"
+ },
+ {
+  "id": 34,
+  "nombre": "Molde Porta Tarjeta Nube 3D",
+  "precio": 30000,
+  "categoria": "Moldes",
+  "foto": "034.jpg"
+ },
+ {
+  "id": 35,
+  "nombre": "Molde Frutilla 3D",
+  "precio": 20000,
+  "categoria": "Moldes",
+  "foto": "035.jpg"
+ },
+ {
+  "id": 36,
+  "nombre": "Molde Tarjeta Flor",
+  "precio": 30000,
+  "categoria": "Moldes",
+  "foto": "036.jpg"
+ },
+ {
+  "id": 37,
+  "nombre": "Molde Florero 9,8cm",
+  "precio": 40000,
+  "categoria": "Moldes",
+  "foto": "037.jpg"
+ },
+ {
+  "id": 38,
+  "nombre": "Molde Plastico Racimo de Uvas",
+  "precio": 50000,
+  "categoria": "Moldes",
+  "foto": "038.jpg"
+ },
+ {
+  "id": 39,
+  "nombre": "Molde Numeros 22cm",
+  "precio": 40000,
+  "categoria": "Moldes",
+  "foto": "039.jpg"
+ },
+ {
+  "id": 40,
+  "nombre": "Molde Ovejita 9cm",
+  "precio": 60000,
+  "categoria": "Moldes",
+  "foto": "040.jpg"
+ },
+ {
+  "id": 41,
+  "nombre": "Molde Florero Ancho 15cm",
+  "precio": 100000,
+  "categoria": "Moldes",
+  "foto": "041.jpg"
+ },
+ {
+  "id": 42,
+  "nombre": "Molde Florero Maceta Rostro De Mujer",
+  "precio": 64500,
+  "categoria": "Moldes",
+  "foto": "042.jpg"
+ },
+ {
+  "id": 43,
+  "nombre": "Molde Florero",
+  "precio": 50000,
+  "categoria": "Moldes",
+  "foto": "043.jpg"
+ },
+ {
+  "id": 44,
+  "nombre": "Molde Florero Maceta Medio Rostro",
+  "precio": 95000,
+  "categoria": "Moldes",
+  "foto": "044.jpg"
+ },
+ {
+  "id": 45,
+  "nombre": "Molde Florero Espiral",
+  "precio": 85000,
+  "categoria": "Moldes",
+  "foto": "045.jpg"
+ }
+]
